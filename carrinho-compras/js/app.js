@@ -1,10 +1,8 @@
 function adicionar(){
-    let select = document.querySelector('.produto-input');
-    let valorselect = select.value;
-    console.log(valorselect);
-
-    let valores = [];
-
+    let nomeProduto = document.getElementById('produto');
+    let quantidade = document.getElementById('quantidade');
+    alert(nomeProduto.value);
+    alert(quantidade.value);
 
 }
 
