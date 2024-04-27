@@ -1,38 +1,45 @@
-let quantidadeIngressoPista = 100;
-let quantidadeIngressoCadeiraSuperior = 200;
-let quantidadeIngressoCadeiraInferior = 400;
+let qtdeIngPista = 100;
+let qtdeIngCadeiraSuperior = 200;
+let qtdeIngCadeiraInferior = 400;
 
 let campoQuantidadePista = document.getElementById('qtd-pista');
 let campoQuantidadeCadeiraSuperior = document.getElementById('qtd-superior');
 let campoQuantidadeCadeiraInferior = document.getElementById('qtd-inferior');
 
-campoQuantidadePista.innerHTML = `<li>Pista<span id="qtd-pista">${quantidadeIngressoPista}</span></li>`;
-campoQuantidadeCadeiraSuperior.innerHTML = `<li>Cadeira Superior<span id="qtd-superior">${quantidadeIngressoCadeiraSuperior}</span></li>`;
 
-campoQuantidadeCadeiraInferior.innerHTML = `<li>Cadeira inferior<span id="qtd-inferior">${quantidadeIngressoCadeiraInferior}</span></li>`;
+campoQuantidadePista.innerHTML = `<li>Pista<span id="qtd-pista">${qtdeIngPista}</span></li>`;
+campoQuantidadeCadeiraSuperior.innerHTML = `<li>Cadeira Superior<span id="qtd-superior">${qtdeIngCadeiraSuperior}</span></li>`;
+campoQuantidadeCadeiraInferior.innerHTML = `<li>Cadeira inferior<span id="qtd-inferior">${qtdeIngCadeiraInferior}</span></li>`;
+
 
 
 function comprar() {
-    // recuperar os campos
-
     let tipoIngresso = document.getElementById('tipo-ingresso').value;
-    let quantidadeIngressoCompra = document.getElementById('qtd').value;
+    let qtdeIngCompra = document.getElementById('qtd').value;
 
-    console.log(quantidadeIngressoCompra);
-    console.log(tipoIngresso);
+    if (qtdeIngCompra > 0) {
 
-    if (quantidadeIngressoCompra <= 0) {
+        if (tipoIngresso == 'inferior' && qtdeIngCompra <= qtdeIngCadeiraInferior) {
+            qtdeIngCadeiraInferior = qtdeIngCadeiraInferior - qtdeIngCompra;
+            campoQuantidadeCadeiraInferior.innerHTML = `<li>Cadeira Inferior<span id="qtd-inferior">${qtdeIngCadeiraInferior}</span></li>`;
 
+        } else if (tipoIngresso == 'superior' && qtdeIngCompra <= qtdeIngCadeiraSuperior) {
+            qtdeIngCadeiraSuperior = qtdeIngCadeiraSuperior - qtdeIngCompra;
+            campoQuantidadeCadeiraSuperior.innerHTML = `<li>Cadeira Superior<span id="qtd-superior">${qtdeIngCadeiraSuperior}</span></li>`;
+
+        } else if (tipoIngresso == 'pista' && qtdeIngCompra <= qtdeIngPista) {
+            qtdeIngPista = qtdeIngPista - qtdeIngCompra;
+            campoQuantidadePista.innerHTML = `<li>Pista<span id="qtd-pista">${qtdeIngPista}</span></li>`;
+
+        } else {
+            
+
+        }
+
+
+    } else {
         alert('Selecione a quantidade de ingressos para efetuar a compra.');
 
-
-
-    } else{
-
     }
-
-
-
-
 
 }
