@@ -16,21 +16,28 @@ function comprar() {
     }
 }
 
+
+
 function comprarInferior(qtd) {
     let qtdInferior = parseInt(document.getElementById('qtd-inferior').textContent);
     console.log(qtd);
 
-    if (qtd > qtdInferior) {
-        alert('Os ingressos para pista esgotaram..')
+    if (qtd > 0) {
+        if (qtd > qtdInferior) {
+            alert('Os ingressos para pista esgotaram..')
 
-    } else {
+        } else {
 
-        qtdInferior = qtdInferior - qtd;
-        qtdInferior.textContent = qtdInferior;
-        alert('Compra realizada com sucesso!');
-        document.getElementById('qtd-inferior').textContent = qtdInferior;
+            qtdInferior = qtdInferior - qtd;
+            qtdInferior.textContent = qtdInferior;
+            alert('Compra realizada com sucesso!');
+            document.getElementById('qtd-inferior').textContent = qtdInferior;
 
+        }
+    }else {
+        alert('selecione a quantidade de ingressos que você deseja para efetuar a compra.');
     }
+
 }
 
 
@@ -51,7 +58,6 @@ function comprarSuperior(qtd) {
     }
 
 }
-
 
 
 function comprarPista(qtd) {
