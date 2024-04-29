@@ -5,18 +5,13 @@ function comprar() {
 
     if (tipo == 'inferior') {
         comprarInferior(qtd);
-    }
-
-    if (tipo == 'superior') {
+    } else if (tipo == 'superior') {
         comprarSuperior(qtd);
-    }
-
-    if (tipo == 'pista') {
+    } else {
         comprarPista(qtd);
     }
+
 }
-
-
 
 function comprarInferior(qtd) {
     let qtdInferior = parseInt(document.getElementById('qtd-inferior').textContent);
