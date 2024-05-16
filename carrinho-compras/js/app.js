@@ -1,7 +1,6 @@
 let totalGeral = 0;
 limpar();
 
-
 function adicionar() {
     // recuperar valores, nome do produto e quantidade
     let produto = document.getElementById('produto').value;
@@ -21,19 +20,13 @@ function adicionar() {
 
         quantidade = document.getElementById('quantidade').value = '';
     } else {
-        alert('É necessário selecionar uma quantidade do produto para adicioná lo ao seu carrinho.')
+        alert('É necessário selecionar a quantidade do produto para adicioná-lo ao seu carrinho.')
     }
 
 }
-
-
-
 
 function limpar() {
     totalGeral = 0;
     document.getElementById('lista-produtos').innerHTML = '';
     document.getElementById('valor-total').textContent = 'R$ 0';
-
-
-
 }
